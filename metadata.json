@@ -1,0 +1,6 @@
+{
+  "name": "Full-Stack Express Gemini Applet",
+  "description": "High-performance TypeScript boilerplate integrating Express, React SPA, and server-side Google Gemini with active GitHub Action configuration files.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

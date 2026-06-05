@@ -1,0 +1,33 @@
+name: Full-Stack Express CI/CD Build Tests
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    name: Build Verification Suite
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js Environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    - name: Install Project Dependencies
+      run: npm ci
+
+    - name: Run Type Checks (Linting)
+      run: npm run lint
+
+    - name: Build Full-Stack Bundles
+      run: npm run build
+      env:
+        NODE_ENV: production
